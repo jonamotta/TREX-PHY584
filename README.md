@@ -12,6 +12,8 @@ The LHC started its operation in 2008 and two phases of its working life have be
 The CMS detector is a multipurpose apparatus optimized to study high transverse momentum physics processes in proton-proton (pp) collisions. The central feature of the apparatus is a superconducting solenoid, providing a magnetic field of 3.8T parallel to the beam direction. Charged particle trajectories are measured by the silicon pixel and strip trackers, which cover a pseudorapidity region of $|\eta| < 2.5$; pseudorapidity is defined as $\eta = -\text{ln}(\tan{\frac{\theta}{2}})$, where $\theta$ is the angle between the trajectory of the particle and the direction of the beam. A lead tungstate crystal electromagnetic calorimeter (ECAL), and a brass and scintillator hadron calorimeter (HCAL) surround the tracking volume and cover $|\eta| < 3$. The steel and quartz-fiber Cherenkov hadron forward calorimeter extends the coverage to $|\eta| < 5$. The muon system consists of gas-ionization detectors embedded in the steel flux-return yoke outside the solenoid, and covers $|\eta| < 2.4$. The selection of the physics of interest is done through the CMS trigger system which consists of two levels designed to single out events from the 40 MHz interaction rate of collisions. The first level of the trigger is implemented in hardware while the second level is implemented in software and further refines the purity of the output stream.
 
 ## Setting up the working environment
+
+### What you need to do just once
 You should first set up your laptop in a way that you can connect to the LLR servers and use the Jupyter notebook from the outside. For this, you need to create a SSH key and upload it to any LLR server. If you are using an operating system of the Microsoft Windows family, you can install Ubuntu via the Linux Subsystem for Windows and start a terminal emulator this way.
 
 Once you are in your terminal, create the key with the following program (just hit enter all the time to accept the defaults):
@@ -22,7 +24,9 @@ Next, you copy the key over to an LLR server:
 
   `ssh-copy-id -i ~/.ssh/mykey appro2@polui01.in2p3.fr`
 
-This one time you'll need a password, just ask me about it. Now it's time to configure your ssh client to connect to the LLR severs via the correct proxy server from the outside. 
+This one time you'll need a password, just ask me about it.
+
+### What you need to do every time
 
 Now connect to the tunneling machine:
 
