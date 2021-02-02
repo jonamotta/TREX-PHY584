@@ -56,4 +56,8 @@ Now open a second terminal window and run the following:
 
   `ssh -L<port_number>:polui01.in2p3.fr:<port_number> appro2@llrgate01.in2p3.fr`
 
-Now you can past the link inside your favourite browser and the magic is done: the Jupyter Notebook should be open and running.
+Now you can past the link inside your favourite browser substituting:
+
+`134.158.128.183` with `localhost`
+
+And the magic is done: the Jupyter Notebook should be open and running.
