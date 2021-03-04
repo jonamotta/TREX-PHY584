@@ -134,3 +134,4 @@ dmypy.json
 *.so
 *.eps
 *.root
+*._*
