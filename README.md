@@ -57,34 +57,34 @@ Connect to the working machine:
 
   `ssh -Y 'appro2@polui01.in2p3.fr'`
 
-If you are **inside the LLR network**:
+#### If you are inside the LLR network:
 
-  open a Jupyter notebook:
-
-    `notebook` (if you are inside the LLR network)
+open a Jupyter notebook:
   
-  this should prompt you a link of this kind:
+  `notebook` (if you are inside the LLR network)
+  
+this should prompt you a link of this kind:
 
-    `http://polui01.in2p3.fr:8888/?token=cb13ddc3d6da41a2e1f52f9fc46081038fad3991d17881de`
+  `http://polui01.in2p3.fr:8888/?token=cb13ddc3d6da41a2e1f52f9fc46081038fad3991d17881de`
 
-  past the link inside your favourite browser, and the magic is done: the Jupyter Notebook should be open and running.
+past the link inside your favourite browser, and the magic is done: the Jupyter Notebook should be open and running.
 
-If you are **outiside the LLR network**:
+##### If you are outiside the LLR network:
 
-  open a Jupyter notebook:
+open a Jupyter notebook:
 
-    `notebook01_gate` (if you are outside of the LLR network)
+  `notebook01_gate` (if you are outside of the LLR network)
 
-  this should prompt you a link of this kind:
+this should prompt you a link of this kind:
 
-    `http://134.158.128.183:<port_number>/?token=7a6d205f71ec2eea66ae613ee3a969e71314ebef3d255989`
+  `http://134.158.128.183:<port_number>/?token=7a6d205f71ec2eea66ae613ee3a969e71314ebef3d255989`
 
-  Now open a second terminal window and run the following:
+now open a second terminal window and run the following:
 
-    `ssh -L<port_number>:polui01.in2p3.fr:<port_number> appro2@llrgate01.in2p3.fr`
+  `ssh -L<port_number>:polui01.in2p3.fr:<port_number> appro2@llrgate01.in2p3.fr`
 
-  Now you can past the link inside your favourite browser substituting:
+now you can past the link inside your favourite browser substituting:
 
   `134.158.128.183` with `localhost`
 
-  and the magic is done: the Jupyter Notebook should be open and running.
+and the magic is done: the Jupyter Notebook should be open and running.
