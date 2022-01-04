@@ -47,7 +47,7 @@ Now it's time to configure your ssh client to connect to the LLR severs via the 
 
 You should now be able to conect to any of the LLR interactive servers as follows, even from the outside:
 
-  `ssh 'appro2@polui01.in2p3.fr'`
+  `ssh -Y 'appro2@polui01.in2p3.fr'`
 
 If this setup does not work (like last year for someone) we will sort it out in another way with the network manager.
 
@@ -61,7 +61,7 @@ Connect to the working machine:
 
 open a Jupyter notebook:
   
-  `notebook` (if you are inside the LLR network)
+  `notebook`
   
 this should prompt you a link of this kind:
 
@@ -73,7 +73,7 @@ past the link inside your favourite browser, and the magic is done: the Jupyter 
 
 open a Jupyter notebook:
 
-  `notebook01_gate` (if you are outside of the LLR network)
+  `notebook01_gate`
 
 this should prompt you a link of this kind:
 
