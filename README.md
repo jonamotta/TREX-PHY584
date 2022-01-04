@@ -14,7 +14,11 @@ The CMS detector is a multipurpose apparatus optimized to study high transverse 
 ## Setting up the working environment
 
 ### What you need to do just once
-You should first set up your laptop in a way that you can connect to the LLR servers and use the Jupyter notebook from the outside. For this, you need to create a SSH key and upload it to any LLR server. If you are using an operating system of the Microsoft Windows family, you can install Ubuntu via the Linux Subsystem for Windows and start a terminal emulator this way.
+You should first set up your laptop in a way that you can connect to the LLR servers and use the Jupyter notebook from the outside. For this, you need to create a SSH key and upload it to any LLR server. 
+
+If you are using an operating system of the Microsoft Windows family you have two options:
+* you can install Ubuntu via the Linux Subsystem for Windows and start a terminal emulator this way (I am not a Linux expert so I wwon't be able to help very much with this)
+* download the [MobaXterm](https://mobaxterm.mobatek.net) terminal emulator and work from there (this proved to work smoothly and efficiently last year)
 
 Once you are in your terminal, create the key with the following program (just hit enter all the time to accept the defaults):
 
@@ -24,40 +28,63 @@ Next, you copy the key over to an LLR server:
 
   `ssh-copy-id -i ~/.ssh/mykey appro2@polui01.in2p3.fr`
 
-This one time you'll need a password, just ask me about it.
+This one time you'll need a password, just ask me about it. 
+
+Now it's time to configure your ssh client to connect to the LLR severs via the correct proxy server from the outside. To do so, add the following lines to your `~/.ssh/config` file (if you have one) or cretae a new one (if you do not have one):
+
+  ```
+  Host *.in2p3.fr
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/<mykey>
+    XAuthLocation /opt/X11/bin/xauth
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    PasswordAuthentication yes
+  ```
+**NB** be careful to put the correct name of your ssh key in the 4th line!!
+
+You should now be able to conect to any of the LLR interactive servers as follows, even from the outside:
+
+  `ssh 'appro2@polui01.in2p3.fr'`
+
+If this setup does not work (like last year for someone) we will sort it out in another way with the network manager.
 
 ### What you need to do every time
 
-Now connect to the tunneling machine:
+Connect to the working machine:
 
-  `ssh -Y appro2@llrgate01.in2p3.fr`
+  `ssh -Y 'appro2@polui01.in2p3.fr'`
 
-from there connect to the working machine:
+If you are **inside the LLR network**:
 
-  `ssh -Y appro2@polui01.in2p3.fr`
+  open a Jupyter notebook:
 
-When you are there you should run this three commands to make `ROOT` available inside your working area:
+    `notebook` (if you are inside the LLR network)
+  
+  this should prompt you a link of this kind:
 
-  `module use /opt/exp_soft/vo.llr.in2p3.fr/modulefiles_el7`
+    `http://polui01.in2p3.fr:8888/?token=cb13ddc3d6da41a2e1f52f9fc46081038fad3991d17881de`
 
-  `module load python/3.7.0`
+  past the link inside your favourite browser, and the magic is done: the Jupyter Notebook should be open and running.
 
-  `source /opt/exp_soft/llr/root/v6.14.04-el7-gcc71-py37/bin/thisroot.sh`
+If you are **outiside the LLR network**:
 
-Open a Jupyter notebook:
+  open a Jupyter notebook:
 
-  `jupyter-notebook --no-browser --ip 134.158.128.183`
+    `notebook01_gate` (if you are outside of the LLR network)
 
-this should promptyou a link of this kind:
+  this should prompt you a link of this kind:
 
-  `http://134.158.128.183:<port_number>/?token=7a6d205f71ec2eea66ae613ee3a969e71314ebef3d255989`
+    `http://134.158.128.183:<port_number>/?token=7a6d205f71ec2eea66ae613ee3a969e71314ebef3d255989`
 
-Now open a second terminal window and run the following:
+  Now open a second terminal window and run the following:
 
-  `ssh -L<port_number>:polui01.in2p3.fr:<port_number> appro2@llrgate01.in2p3.fr`
+    `ssh -L<port_number>:polui01.in2p3.fr:<port_number> appro2@llrgate01.in2p3.fr`
 
-Now you can past the link inside your favourite browser substituting:
+  Now you can past the link inside your favourite browser substituting:
 
-`134.158.128.183` with `localhost`
+  `134.158.128.183` with `localhost`
 
-And the magic is done: the Jupyter Notebook should be open and running.
+  and the magic is done: the Jupyter Notebook should be open and running.
