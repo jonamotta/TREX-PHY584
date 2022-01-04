@@ -69,7 +69,7 @@ this should prompt you a link of this kind:
 
 past the link inside your favourite browser, and the magic is done: the Jupyter Notebook should be open and running.
 
-##### If you are outiside the LLR network:
+#### If you are outiside the LLR network:
 
 open a Jupyter notebook:
 
@@ -81,7 +81,7 @@ this should prompt you a link of this kind:
 
 now open a second terminal window and run the following:
 
-  `ssh -L<port_number>:polui01.in2p3.fr:<port_number> appro2@llrgate01.in2p3.fr`
+  `ssh -L <port_number>:polui01.in2p3.fr:<port_number> appro2@llrgate01.in2p3.fr`
 
 now you can past the link inside your favourite browser substituting:
 
