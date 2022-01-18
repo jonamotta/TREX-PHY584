@@ -35,7 +35,6 @@ Now it's time to configure your ssh client to connect to the LLR severs via the 
   ```
   Host *.in2p3.fr
     AddKeysToAgent yes
-    UseKeychain yes
     IdentityFile ~/.ssh/<mykey>
     XAuthLocation /opt/X11/bin/xauth
     ForwardAgent yes
@@ -45,17 +44,22 @@ Now it's time to configure your ssh client to connect to the LLR severs via the 
   ```
 **NB** be careful to put the correct name of your ssh key in the 4th line!!
 
-You should now be able to conect to any of the LLR interactive servers as follows, even from the outside:
+You should now be able to conect to any of the LLR interactive servers as follows:
 
-  `ssh -Y 'appro2@polui01.in2p3.fr'`
+  `ssh -Y appro2@llrgate01.in2p3.fr`
 
-If this setup does not work (like last year for someone) we will sort it out in another way with the network manager.
+and from there:
+
+  `ssh -Y appro2@polui01.in2p3.fr`
 
 ### What you need to do every time
 
-Connect to the working machine:
+Connect to the working machine with the two commands above (only the second one is enough if you are inside the LLR internet network).
+When you are logged in you can load the needed Python, Jupyter, and ROOT modules with:
 
-  `ssh -Y 'appro2@polui01.in2p3.fr'`
+  `loadJupyROOT`
+
+then:
 
 #### If you are inside the LLR network:
 
