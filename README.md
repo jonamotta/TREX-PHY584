@@ -24,11 +24,7 @@ Once you are in your terminal, create the key with the following program (just h
 
   `ssh-keygen`
 
-Next, you copy the key over to an LLR server:
-
-  `ssh-copy-id -i ~/.ssh/mykey appro2@polui01.in2p3.fr`
-
-This one time you'll need a password, just ask me about it. 
+Next, I will copy the key over to an LLR server.
 
 Now it's time to configure your ssh client to connect to the LLR severs via the correct proxy server from the outside. To do so, add the following lines to your `~/.ssh/config` file (if you have one) or cretae a new one (if you do not have one):
 
